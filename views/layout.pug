@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  script(src="/javascripts/lib/pixi.min.js")
+  script(src="/javascripts/CloudManager.js")
+  script(src="/javascripts/Player.js")
+  script(src="/javascripts/Rocket.js")
+  script(src="/javascripts/Enemy.js")
+  script(src="/javascripts/Enemy_Rocket.js")
+  script(src="/javascripts/main.js")
+
+  body
+    block content
+    script(type="text/javascript").
+      var type = "WebGL";
+      if (!PIXI.utils.isWebGLSupported()) {
+      type = "canvas";
+      }
+      PIXI.utils.sayHello(type);
+      var renderer = PIXI.autoDetectRenderer(1024, 768);
+      document.body.appendChild(renderer.view);
+    style.
+      body {
+      margin: 0;
+      padding: 50px 0 0;
+      text-align: center;
+      overflow: hidden;
+      }
+
+      body > canvas {
+        max-width: 100%;
+      }
